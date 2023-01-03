@@ -1,7 +1,7 @@
 "# BookStore" 
 About inserting data in sqlite3 database.
 
-insert data using terminal:
+INSERT DATA USING TERMINAL:
 1. python manage.py shell
     -> this will open up a shell to perform operations
 
@@ -24,7 +24,7 @@ Book.objects.all()
 After adding __str__ method in models. output of Book.objects.all() is
     -> <QuerySet [<Book: Harry Potter and the Philosopher's Stone (5)>, <Book: Data Structure and Algorithms made easy (4)>]>
 
-Update data to previously added entries
+UPDATE DATA TO PREVIOUSLY ADDED ENTRIES 
 1. python manage.py shell
     -> this will open up a shell to perform operations
 
@@ -43,3 +43,17 @@ Update data to previously added entries
 
 6. hr.save()
     -> this will save the changes in database
+
+
+DELETE THE DATA
+1. python manage.py shell
+    -> this will open up a shell to perform operations
+
+2. from BookOutlet.models import Book
+    -> import the book class
+
+3. ds = Book.objects.all()[1]
+    -> this will retun the second row as object
+
+4. ds.delete()
+    -> this will delete this row
