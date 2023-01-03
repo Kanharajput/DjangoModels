@@ -1,0 +1,17 @@
+"# BookStore" 
+About inserting data in sqlite3 database.
+
+insert data using terminal:
+1. python manage.py shell
+    -> this will open up a shell to perform operations
+
+2. from BookOutlet.models import Book
+    -> import the book class
+
+3. harry_potter = Book(title="Harry Potter and the Philosopher's Stone",rating=5)
+    -> this will create a sql command with data passed
+
+4. harrry_potter.save()
+    -> save the data in the database
+
+Repeat from step 3 to insert more data
