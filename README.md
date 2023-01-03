@@ -57,3 +57,11 @@ DELETE THE DATA
 
 4. ds.delete()
     -> this will delete this row
+
+
+CREATE METHOD TO ADD NEW ROW IN BOOK TABLE
+-> 1 and 2 step is same
+
+3. Book.create(title="lord of the rings",rating=4,author="J. R. R. Tolkien",is_bestselling="True")
+    -> don't need to run the save command it automatically save after pressing enter
+    
