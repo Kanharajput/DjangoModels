@@ -15,3 +15,8 @@ insert data using terminal:
     -> save the data in the database
 
 Repeat from step 3 to insert more data
+
+To see the data in shell use command:
+Book.objects.all()
+    -> output : <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>]>
+    Here each row is concluded as object
