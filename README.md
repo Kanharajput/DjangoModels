@@ -20,3 +20,6 @@ To see the data in shell use command:
 Book.objects.all()
     -> output : <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>]>
     Here each row is concluded as object
+
+After adding __str__ method in models. output of Book.objects.all() is
+    -> <QuerySet [<Book: Harry Potter and the Philosopher's Stone (5)>, <Book: Data Structure and Algorithms made easy (4)>]>

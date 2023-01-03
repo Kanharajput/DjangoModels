@@ -9,6 +9,10 @@ class Book(models.Model):
     # id field is automatically created by django and it also increment with each new row
     title = models.CharField(max_length=50)          # in title field we can only insert char type data
     rating = models.IntegerField()                 # rating column have integer values
+    # this method is used to name the instace at a time of showing row data
+    def __str__(self):
+        return f"{self.title} ({self.rating})"
+
 
 '''
 we created a db.sqlite3 file in the base folder, sqlite3 is the database and it is able to work with only a file. So we successully set a database but we have to also link it in settings.py but for sqlite3 it already done by the django.
@@ -25,3 +29,5 @@ AFter this we have to run two commands
 
 Run this two commands after performing any change in models file
 '''
+
+
