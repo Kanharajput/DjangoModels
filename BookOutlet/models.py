@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator,MinValueValidator
 
 # Create your models here.
 # in django we don't have to write the sql queries django do it for us
@@ -8,7 +9,12 @@ from django.db import models
 class Book(models.Model):
     # id field is automatically created by django and it also increment with each new row
     title = models.CharField(max_length=50)          # in title field we can only insert char type data
-    rating = models.IntegerField()                 # rating column have integer values
+    rating = models.IntegerField(validators=[MaxValueValidator(5),MinValueValidator(1)])                 # if value is greater or less than 5 and 1 then it will show a validation error
+    # as we are creating this two fields after inserting some data in database so we have enter some default data or null value to previously added entries for this columns
+    author = models.CharField(max_length=50,null=True)             # it set None when author field is not provided
+    is_bestselling = models.BooleanField(default=False)            # defaultly the book is not best selling
+
+    
     # this method is used to name the instace at a time of showing row data
     def __str__(self):
         return f"{self.title} ({self.rating})"
@@ -27,7 +33,7 @@ AFter this we have to run two commands
 2. python manage.py migrate 
         -> this will apply all the sql commands to database and also some other commands which are needed by the apps which are added in installed apps, as there code is not showing up because django handles them.
 
-Run this two commands after performing any change in models file
+Run this two commands after performing any change in models file and when we change schema if we add any function then there is not need to perform migration commands
 '''
 
 
