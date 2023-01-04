@@ -12,4 +12,10 @@
         {% endfor %}
     </ul>
 
+    <hr> <!-- this horizontal line syntax-->
+    <h3> No of Books {{no_of_books}} </h3>
+    <!--aggre_dict is a aggregate dictionary which is used to access aggregate fuctions value-->
+    <h3> Average Rating {{aggre_dict.rating__avg}} </h3>      
+    <h3> Minimum Rating {{aggre_dict.rating__min}} </h3>
+
 {% endblock content %}
