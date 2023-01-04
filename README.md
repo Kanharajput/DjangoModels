@@ -129,3 +129,8 @@ TO CREATE SLUG OF SAVED ENTRIES OF DATABASE:
 4. Entering new entry will automatically create the slug
 
 DB_INDEX = TRUE, increase the performance database some how make this column values more effiecient to search. Not make all field db_index as db_index then lower the performance it is good for one column which is fetching many times.
+
+WE HAVE A ADMIN PANEL WHICH IS GIVEN BY DJANGO TO PUT DATA IN DATABASE IT IS NOT FOR USER IT IS FOR OWNER OF THE SITE TO PUT SITE NEEDED DATA ON DATABASE
+- visit http://127.0.0.1:8000/admin to see the admin panel
+- needed login credential, create superuser by command
+- python manage.py createsuperuser
