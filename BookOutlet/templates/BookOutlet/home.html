@@ -6,7 +6,10 @@
 
 {% block content %}
     <ul>
-        <li> Book1 </li>    
+        <!--here also we get each book entry as a dictionary-->
+        {% for book in Books %}
+        <li> {{book.title}} (rating: {{book.rating}})</li>    
+        {% endfor %}
     </ul>
 
 {% endblock content %}
