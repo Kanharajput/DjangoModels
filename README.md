@@ -101,3 +101,21 @@ WRITING OR CONDTION WITH AND CONDITION
     -> Query : Book.objects.all().filter(author__contains="J.K. Rowling", Q(title__contains="harry") | Q(rating__lt=3))
     OUTPUT : File "<console>", line 1
                 SyntaxError: positional argument follows keyword argument
+
+
+DATABASE PERFORMANCE
+    best_sellers = Book.objects.all().filter(is_bestselling=True)     
+        -> this command will not untill we need the data it is just the query write now
+    amazing_best_sellers = best_sellers.filter(rating__gt=4)
+        -> we can get the amazing_best_sellers from the best_sellers their is no need to touch the database and it is also a query 
+        right now.
+
+        When we print the data, then actually the database is touched
+        print(best_sellers)        # now the query is run  and we get the data from database
+        print(amazing_best_sellers)       # this time the data is accessed from the database rather then it is just the filter of
+                                            best_sellers data.
+
+        So this is how we increase the performance if we directly the data without putting it in variable then each time we have to 
+        fetch the data from database. like this 
+        print(Book.objects.all().filter(is_bestselling=True))   # data is accesssed from database
+        print(Q(Book.objects.all().filter(is_bestselling=True)) | Q(Book.objects.all().filter(rating__gt=4)))   # this time it is also accessed from database
