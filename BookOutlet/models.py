@@ -15,8 +15,10 @@ class Book(models.Model):
     # as we are creating this two fields after inserting some data in database so we have enter some default data or null value to previously added entries for this columns
     author = models.CharField(max_length=50,null=True)             # it set None when author field is not provided
     is_bestselling = models.BooleanField(default=False)            # defaultly the book is not best selling
-    slug = models.SlugField(default="",null=False, db_index=True)                 # used to create slug like harry-potter-1 because using id as a slug is not a usual  also we set default="" for previously added entries , know about db_index in readme
-
+    # blank=True because if it is not django make this field required and not let us  to save the data
+    # editable=False is also an another way to tweak this sitution, it just hide the field from django admin form of taking data from owner
+    slug = models.SlugField(default="",blank=True,editable=False, null=False, db_index=True)                 # used to create slug like harry-potter-1 because using id as a slug is not a usual  also we set default="" for previously added entries , know about db_index in readme
+    
 
     # as user is not enter the slug value we create it using title of the entry so we are overriding save method to enter slug field at the same time
     # we are creating our slug using title 
