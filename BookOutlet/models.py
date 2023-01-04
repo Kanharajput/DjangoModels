@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator,MinValueValidator
+from django.urls import reverse
 
 # Create your models here.
 # in django we don't have to write the sql queries django do it for us
@@ -14,6 +15,12 @@ class Book(models.Model):
     author = models.CharField(max_length=50,null=True)             # it set None when author field is not provided
     is_bestselling = models.BooleanField(default=False)            # defaultly the book is not best selling
 
+    # this will create a url of each entry and we can pass it to href of home page
+    # it is also good practise because we don't need to create path each time we simple call this 
+    # method from a entry and we get back an url
+    def get_absolute_url(self):
+        return reverse("detail-url", args=[self.id])
+    
     
     # this method is used to name the instace at a time of showing row data
     def __str__(self):
