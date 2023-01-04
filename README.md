@@ -82,3 +82,22 @@ GET METHOD OF Book.Objects.all() to get the selected data
     -> one more modifier is __lt which is less than, and __lte is less than equal
     -> one more modifier is __gt which is greater than, and __gte is greater than equal
     -> check this site to know more about modifiers https://www.w3schools.com/django/django_queryset_filter.php
+
+OR CONDITION 
+-> 1 and 2 step is same
+
+3. from django.db.models import Q
+    -> inbuilt class which let us write queries with or conditio
+
+4. Book.objects.all().filter(Q(title__contains="harry") | Q(rating__lt=3))
+    -> output :<QuerySet [<Book: Harry Potter and the Philosopher's Stone (5)>, <Book: Kanha's Story (2)>, <Book: Some title (2)>]>
+
+WRITING OR CONDTION WITH AND CONDITION
+
+5. Book.objects.all().filter(Q(title__contains="harry") | Q(rating__lt=3), Q(author__contains="J.K. Rowling"))
+    -> output : <QuerySet [<Book: Harry Potter and the Philosopher's Stone (5)>]>   
+    if want to write and without Q then always write it after or condition then only it work if you put in before or condition then it will show error.
+
+    -> Query : Book.objects.all().filter(author__contains="J.K. Rowling", Q(title__contains="harry") | Q(rating__lt=3))
+    OUTPUT : File "<console>", line 1
+                SyntaxError: positional argument follows keyword argument
