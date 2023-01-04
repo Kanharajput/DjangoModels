@@ -64,4 +64,21 @@ CREATE METHOD TO ADD NEW ROW IN BOOK TABLE
 
 3. Book.create(title="lord of the rings",rating=4,author="J. R. R. Tolkien",is_bestselling="True")
     -> don't need to run the save command it automatically save after pressing enter
-    
+
+GET METHOD OF Book.Objects.all() to get the selected data
+-> 1 and 2 step is same
+
+3. Book.objects.all().get(id=1)
+    -> <Book: Harry Potter and the Philosopher's Stone (5)>
+
+4. Book.objects.all().get(title="Kanha's Story")
+    -> output : <Book: Kanha's Story (2)>
+    get method will not work when their are two rows found for a same key value
+
+5. Book.objects.all().filter(title__contains="harry",rating=5)
+    output : <QuerySet [<Book: Harry Potter and the Philosopher's Stone (5)>]>
+    -> in filter we can write more then one condition
+    -> here contains is modifier provided by django
+    -> one more modifier is __lt which is less than, and __lte is less than equal
+    -> one more modifier is __gt which is greater than, and __gte is greater than equal
+    -> check this site to know more about modifiers https://www.w3schools.com/django/django_queryset_filter.php
