@@ -8,7 +8,7 @@
     <ul>
         <!--here also we get each book entry as a dictionary-->
         {% for book in Books %}
-        <li> {{book.title}} (rating: {{book.rating}})</li>    
+        <li> <a href="{% url 'detail-url' book.id %}"> {{book.title}} </a> (rating: {{book.rating}})</li>    
         {% endfor %}
     </ul>
 
