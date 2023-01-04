@@ -119,3 +119,11 @@ DATABASE PERFORMANCE
         fetch the data from database. like this 
         print(Book.objects.all().filter(is_bestselling=True))   # data is accesssed from database
         print(Q(Book.objects.all().filter(is_bestselling=True)) | Q(Book.objects.all().filter(rating__gt=4)))   # this time it is also accessed from database
+
+
+TO CREATE SLUG OF SAVED ENTRIES OF DATABASE:
+    1 and 2 step is same
+3. Book.objects.get(id=1).save()
+    -> as we run save method it create slug as we override the save method
+
+4. Entering new entry will automatically create the slug
