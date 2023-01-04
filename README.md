@@ -127,3 +127,5 @@ TO CREATE SLUG OF SAVED ENTRIES OF DATABASE:
     -> as we run save method it create slug as we override the save method
 
 4. Entering new entry will automatically create the slug
+
+DB_INDEX = TRUE, increase the performance database some how make this column values more effiecient to search. Not make all field db_index as db_index then lower the performance it is good for one column which is fetching many times.
