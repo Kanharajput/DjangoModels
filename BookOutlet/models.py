@@ -21,6 +21,7 @@ class Book(models.Model):
     # on_delete tells what to do if pointed entry got deleted from Author table , CASCADE means delete book entry also
     # on_delete=models.SET_NULL, on_delete=models.PROTECT, other options we can use in on_delete
     # delete all the entries, if there's something already in database before migration
+    # ForeignKey is for one to many relation
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, related_name="books")          
     is_bestselling = models.BooleanField(default=False)            
     slug = models.SlugField(default="",blank=True, null=False, db_index=True)
