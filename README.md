@@ -181,3 +181,17 @@ TO RELATE BOOKS WITH AUTHOR THROUGH ADMIN PANEL
 - all entries of author table are listed their simple select one author to relate it with the book.
 
 AS IT IS ONETOONE RELATION ADMIN PANEL NOT LET US TO PASS SAME ADDRESS FOR TWO DIFFERENT AUTHORS
+
+WORK WITH ONETOONE THROUGH SHELL
+- from BookOutlet.models import Address,Author
+- adr1 = Address(street="Main road", postal_code=32415,city="Dhar")
+- adr1.save()
+- auth1 = Author.objects.get(first_name="J.K.")
+- auth1.address = adr1        this is how we link a address to the author
+
+getting AUTHOR DATA THROUGH ADDRESS
+- adr1.author                      
+    - Output : <Author: Kanha Tomar>
+    - here we don't need to create related_name django automatically done it . but in one to many field we have to pass it like for author we have book_set.
+
+    DONE WITH ONE TO ONE FIELD
