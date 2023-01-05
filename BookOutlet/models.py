@@ -5,6 +5,12 @@ from django.urls import reverse
 # Create your models here.
 # to understand what happened till now check the previous commit every commit covers a different topic 
 
+# it store the data of the books where the books published
+class Country(models.Model):
+    name = models.CharField(max_length=50)
+    code = models.CharField(max_length=2)
+
+
 # Address table to store address of authors
 class Address(models.Model):
     street = models.CharField(max_length=50)
@@ -38,7 +44,9 @@ class Book(models.Model):
     # on_delete=models.SET_NULL, on_delete=models.PROTECT, other options we can use in on_delete
     # delete all the entries, if there's something already in database before migration
     # ForeignKey is for one to many relation
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, related_name="books")                   
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, related_name="books") 
+    # check readme why ManyToManyField not have on_delete
+    published_countries = models.ManyToManyField(Country)                  
     is_bestselling = models.BooleanField(default=False)            
     slug = models.SlugField(default="",blank=True, null=False, db_index=True)
     

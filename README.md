@@ -195,3 +195,8 @@ getting AUTHOR DATA THROUGH ADDRESS
     - here we don't need to create related_name django automatically done it . but in one to many field we have to pass it like for author we have book_set.
 
     DONE WITH ONE TO ONE FIELD
+
+    WHY ManyToManyField not a on_delete
+    - because lets suppose one books related with five different countries and after some time book got banned in one country so we delete that country from the database, and if it on_delete then the book entry also deleted from the Book table but the same book is live in that four countries.
+    - So to delete one country data django automatically create a third table behind the scene.So for one book if there are five publisher countries then that table contains five rows with only difference of country. 
+    - This third table is always there if we are working with ManyToManyFields no matter which framework we are working on.
