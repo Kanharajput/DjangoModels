@@ -200,3 +200,25 @@ getting AUTHOR DATA THROUGH ADDRESS
     - because lets suppose one books related with five different countries and after some time book got banned in one country so we delete that country from the database, and if it on_delete then the book entry also deleted from the Book table but the same book is live in that four countries.
     - So to delete one country data django automatically create a third table behind the scene.So for one book if there are five publisher countries then that table contains five rows with only difference of country. 
     - This third table is always there if we are working with ManyToManyFields no matter which framework we are working on.
+
+    WORKING WITH ManyToMany in shell
+    - from BookOutlet.models import Book,Country
+    - india = Country(name="India", code =001)
+    - india.save()
+        - this will create a entry in Country table, now link it with Book entries
+
+    - hr1 = Book.objects.all()[0]
+    - hr1.published_countries.add(india)
+        - as it published_countries can be more then one that'swhy we have add method we can pass more then one country at the same time
+    - query_set_india = hr1.published_countries.filter(name="India")
+    - india = query_set_india[0]
+    - india.name
+        - Output : Indi
+
+    HERE ALSO WE CAN GET BOOK DETAILS FROM COUNTRY ENTRIES
+    - india = Country.objects.get(name="India")     
+    - india.book_set.all()          we can change this book_set by related_name arg in manytomany field
+    - query_obj_hr = india.book_set.filter(title="Harry Potter 1")
+    - hr = query_obj_hr[0]
+    - hr.title
+        - Output : 'Harry Potter 1'
