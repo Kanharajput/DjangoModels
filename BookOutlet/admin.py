@@ -9,9 +9,12 @@ BlogAdmin is class thrugh which we can configure the admin settings. BlogAdmin c
 
 '''
 class BookAdmin(admin.ModelAdmin):
-    # this will make the slug field readonly means can't be editable so now we can remove the editable form the slug field
-    readonly_fields = ("slug",)    # here we are adding comma because readonyly_fields can be only list or tuple
-     
+    # predefined slug when user type the title into the field then automatically the slug should be pop-up to slug field
+    # as slug is readonly then we can't prepolute it because it prepopulating actually we are writing so we have remove it from readonly_fields
+    # now slug is prepopulated so we can remove that save method because it prepopulated then user click save to save the slug which is in admin form their is no need of overriding save method to create slug.
+    # if we don't have admin panel then that save method is the only option to create slug.
+    prepopulated_fields = {"slug":("title",)}       # passded title in tuple to slug we can pass more then one field to create slug
+    
 
 
 # Register your models here.

@@ -19,14 +19,7 @@ class Book(models.Model):
     # editable=False is also an another way to tweak this sitution, it just hide the field from django admin form of taking data from owner
     slug = models.SlugField(default="",blank=True, null=False, db_index=True)                 # used to create slug like harry-potter-1 because using id as a slug is not a usual  also we set default="" for previously added entries , know about db_index in readme
     
-
-    # as user is not enter the slug value we create it using title of the entry so we are overriding save method to enter slug field at the same time
-    # we are creating our slug using title 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)            # so title harry potter then after slugify it is harry-potter
-        super().save(*args,**kwargs)
-
-
+    
     # this will create a url of each entry and we can pass it to href of home page
     # it is also good practise because we don't need to create path each time we simple call this 
     # method from a entry and we get back an url
