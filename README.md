@@ -134,3 +134,24 @@ WE HAVE A ADMIN PANEL WHICH IS GIVEN BY DJANGO TO PUT DATA IN DATABASE IT IS NOT
 - visit http://127.0.0.1:8000/admin to see the admin panel
 - needed login credential, create superuser by command
 - python manage.py createsuperuser
+
+FETCHING AND STORING DATA IN MULTIPLE TABLE VIA SHELL :
+1. from BookOutlet.models import Author
+2. jkrowling = Author(first_name="J.K.", last_name="Rowling")
+3. jkrowling.save()
+    -> this will save the entry in Author table
+
+4. from BookOutlet.models import Book
+5. hr = Book(title="Harry Potter 1",rating =5, is_bestselling=True,slug="harry-potter-1",author=jkrowling)
+6. hr.save()
+    -> we simply pass the jkrowling object to the author field not an id , django will automatically do it for us
+    -> NOte : remember we deleted that save method so now we have to manually write the slug.
+
+FETCHING DATA:
+- harry = Book.objects.all()[0]
+- harry.author
+    - output : <Author: Author object (1)>  work as normal as working with a field of table but actually author is an another table
+- harry.author.first_name
+    - Output : 'J.K.'
+- harry.author.last_name
+    - Output : 'Rowling'
