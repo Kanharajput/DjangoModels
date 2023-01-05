@@ -179,3 +179,5 @@ TO RELATE BOOKS WITH AUTHOR THROUGH ADMIN PANEL
 - enter books and author entries
 - in books entering form their is an option to select author
 - all entries of author table are listed their simple select one author to relate it with the book.
+
+AS IT IS ONETOONE RELATION ADMIN PANEL NOT LET US TO PASS SAME ADDRESS FOR TWO DIFFERENT AUTHORS

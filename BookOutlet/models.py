@@ -11,6 +11,13 @@ class Address(models.Model):
     postal_code = models.CharField(max_length=5)
     city = models.CharField(max_length=30)
 
+    def __str__(self):
+        return f"{self.street} {self.city}"
+
+    # using this we can set a different name to model at a time of showing it in admin panel
+    class Meta:
+        verbose_name_plural = "Address Entries"
+
 
 # Author table to store author data
 class Author(models.Model):

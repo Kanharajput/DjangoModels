@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book,Author
+from .models import Book,Author,Address
 
 
 '''
@@ -23,4 +23,5 @@ class BookAdmin(admin.ModelAdmin):
 # also we can edit previously entered data and also we can add some new entries to it
 admin.site.register(Book,BookAdmin)
 admin.site.register(Author)
+admin.site.register(Address)
 
