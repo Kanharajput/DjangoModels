@@ -155,3 +155,18 @@ FETCHING DATA:
     - Output : 'J.K.'
 - harry.author.last_name
     - Output : 'Rowling'
+
+HOW TO ACCESSING BOOK DATA FROM AUTHOR DATA
+- from BookOutlet.models import Author
+- jk = Author.objects.filter(first_name="J.K.")
+    - we get the entry having first_name = J.K.
+- jk.book_set
+    - this will put all the entries of book which have foreign key as jk
+    - now we can run all the operation which we can apply over objects
+
+- jk.book_set.filter(title__contains="ha")
+    - this will return the book entries whose title contains ha, so we are getting data from Book table
+    
+- we can also create this object from models and set name as we want rather then just book_set, using related_name
+- then we can directly check the data related to author jk by just typing jk.books.all()
+- but there is a condition we have to get the entry in jk by get only not by filter or index, then only it work
