@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book
+from .models import Book,Author
 
 
 '''
@@ -22,4 +22,5 @@ class BookAdmin(admin.ModelAdmin):
 # now the book model is registered and we can see it now in admin panel
 # also we can edit previously entered data and also we can add some new entries to it
 admin.site.register(Book,BookAdmin)
+admin.site.register(Author)
 

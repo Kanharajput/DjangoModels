@@ -156,6 +156,10 @@ FETCHING DATA:
 - harry.author.last_name
     - Output : 'Rowling'
 
+FILTER THE BOOK USING AUTHOR DATA
+- book_by_rowling = Book.objects.filter(author__last_name="Rowling")
+    - this will return all the books written by rowling in a list each item of list denote a entry.
+
 HOW TO ACCESSING BOOK DATA FROM AUTHOR DATA
 - from BookOutlet.models import Author
 - jk = Author.objects.filter(first_name="J.K.")
@@ -170,3 +174,8 @@ HOW TO ACCESSING BOOK DATA FROM AUTHOR DATA
 - we can also create this object from models and set name as we want rather then just book_set, using related_name
 - then we can directly check the data related to author jk by just typing jk.books.all()
 - but there is a condition we have to get the entry in jk by get only not by filter or index, then only it work
+
+TO RELATE BOOKS WITH AUTHOR THROUGH ADMIN PANEL
+- enter books and author entries
+- in books entering form their is an option to select author
+- all entries of author table are listed their simple select one author to relate it with the book.

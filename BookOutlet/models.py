@@ -10,6 +10,9 @@ class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
 
+    # every entry of Author table is represented by it's first and last name
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 class Book(models.Model):
     title = models.CharField(max_length=50)          
@@ -29,6 +32,4 @@ class Book(models.Model):
     def __str__(self):
         return f"{self.title} ({self.rating})"
 
-
-
-
+    
