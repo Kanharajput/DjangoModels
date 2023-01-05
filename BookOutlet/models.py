@@ -17,7 +17,7 @@ class Book(models.Model):
     is_bestselling = models.BooleanField(default=False)            # defaultly the book is not best selling
     # blank=True because if it is not django make this field required and not let us  to save the data
     # editable=False is also an another way to tweak this sitution, it just hide the field from django admin form of taking data from owner
-    slug = models.SlugField(default="",blank=True,editable=False, null=False, db_index=True)                 # used to create slug like harry-potter-1 because using id as a slug is not a usual  also we set default="" for previously added entries , know about db_index in readme
+    slug = models.SlugField(default="",blank=True, null=False, db_index=True)                 # used to create slug like harry-potter-1 because using id as a slug is not a usual  also we set default="" for previously added entries , know about db_index in readme
     
 
     # as user is not enter the slug value we create it using title of the entry so we are overriding save method to enter slug field at the same time
