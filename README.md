@@ -260,3 +260,6 @@ class Review(models.Model):
   product = models.ForeignKey('store.Product') # '<appname>.<modelname>'
 
 You can reference models defined in other Django apps (no matter if created by you, via python manage.py startapp <appname> or if it's a built-in or third-party app) by using the app name and then the name of the model inside the app.
+
+- cHECK THIS LINK TO KNOW MORE ABOUT DATABASE
+    - https://drive.google.com/drive/folders/1UM0FJ1yXdmsC8BbjrzyRQM5E2hvQRHme
